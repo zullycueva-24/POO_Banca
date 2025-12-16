@@ -10,7 +10,7 @@ class Cuenta:                               # Define una clase 'Cuenta' (POO) qu
     def retirar(self, m):                          # Método de negocio: intenta retirar 'm' del saldo actual.
         if m <= self.saldo: self.saldo -= m        # Solo descuenta si hay fondos suficientes (evita sobregiros); si no, no hace nada.
 
-c = st.session_state.setdefault("c", Cuenta("Carlos", 100))  # Usa el estado de sesión de Streamlit:
+c = st.session_state.setdefault("c", Cuenta("Zully", 100))  # Usa el estado de sesión de Streamlit:
                                                              # - Si no existe la clave 'c', crea una Cuenta("Carlos",100) y la guarda.
                                                              # - Si ya existe, devuelve la cuenta existente (persiste entre reruns).
 h = st.session_state.setdefault("h", [])                     # En 'h' guardamos el historial: si no existe, crea una lista vacía.
@@ -45,3 +45,4 @@ st.subheader("🧾 Historial")                                  # Subtítulo par
 st.text("\n".join(reversed(h)) if h else "Aún sin movimientos.")  # Muestra el historial como texto:
                                                                   # - Si hay movimientos, los invierte para ver el más reciente arriba.
                                                                   # - Si no hay, muestra "Aún sin movimientos."
+
